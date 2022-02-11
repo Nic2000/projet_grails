@@ -1,0 +1,136 @@
+.header {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding-top: 16px;
+  padding-bottom: 16px;
+  background-color: #f56b2a;
+  color: #fff;
+}
+
+.header a {
+  color: inherit;
+  text-decoration: none;
+  transition: 0.3s;
+}
+
+.flex {
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  height: 100%;
+  width: 100%;
+}
+
+.hidden-xs {
+  display: none;
+}
+
+.nav a:nth-child(2) {
+  flex-grow: 1;
+}
+
+.account-panel {
+  display: flex;
+  flex-direction: row;
+  align-items: inherit;
+}
+
+.account-panel span {
+  margin-right: 10px;
+}
+
+.account-panel a:nth-child(1) {
+  padding-right: 16px;
+}
+
+.flex a:nth-child(3) {
+  padding-left: 16px;
+}
+
+.header svg:focus {
+  outline: none;
+}
+
+a svg {
+  width: 140px;
+  height: 25px;
+}
+
+menu svg {
+  width: 25px;
+  height: 25px;
+  fill: #fff;
+}
+
+.show-xs {
+  display: flex;
+}
+
+.offers-link {
+  margin: 15px;
+}
+
+menu {
+  position: absolute;
+  top: 0;
+  right: 0;
+  cursor: pointer;
+}
+
+.flex-xs {
+  height: 100vh;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.menu-open {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  padding-top: 16px;
+}
+
+.menu-open a {
+  font-size: 19px;
+  padding-top: 16px;
+  padding-bottom: 16px;
+}
+
+@media only screen and (min-width: 768px) {
+  .flex {
+    flex-direction: row;
+    justify-content: space-around;
+  }
+
+  .flex a:nth-child(3) {
+    flex-grow: 1;
+  }
+
+  .flex a:nth-child(2) {
+    padding-left: 16px;
+  }
+
+  .nav {
+    display: flex;
+    align-items: baseline;
+    padding-left: 15px;
+    width: 100%;
+    margin-top: 10px;
+  }
+
+  .show-xs {
+    display: none;
+  }
+
+  .offers-link {
+    flex-grow: 1;
+    margin-left: 15px;
+  }
+
+  .header a {
+    margin-bottom: 0;
+  }
+}

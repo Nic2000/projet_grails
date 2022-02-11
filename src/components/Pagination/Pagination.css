@@ -1,0 +1,23 @@
+.pagination {
+  height: 60px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 20px;
+  text-overflow: hidden;
+}
+
+.pagination span {
+  padding: 8px;
+  cursor: pointer;
+}
+
+.pagination .active {
+  background-color: #f46a2a;
+  border-radius: 4px;
+  user-select: none;
+}
+
+.pagination svg {
+  width: 14px;
+}
