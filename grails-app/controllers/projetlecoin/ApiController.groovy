@@ -27,8 +27,16 @@ class ApiController {
                         json { render UserInstance as JSON }
                     }
                 }
-
                 break
+            case "POST":
+                User.save flush:true
+                withFormat {
+                    html {
+                        flash.message = message(code: 'default.updated.message', args: [message(code: 'User.name', default: 'User'), User.id])
+                        redirect User
+                    }
+                    '*' { render status: OK }
+                }
             case "PUT":
                 break
             case "PATCH":
