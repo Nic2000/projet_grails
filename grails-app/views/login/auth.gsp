@@ -1,6 +1,6 @@
 <html>
 <head>
-    <meta name="layout" content="${gspLayout ?: 'main'}"/>
+
     <title><g:message code='springSecurity.login.title'/></title>
     <style type="text/css" media="screen">
     #login {
@@ -81,38 +81,125 @@
     #login .inner .chk {
         height: 12px;
     }
+    * {
+        box-sizing: border-box;
+        -moz-box-sizing: border-box;
+        -webkit-box-sizing: border-box;
+        font-family: arial
+    }
+
+    h1 {
+        color: #ccc;
+        text-align: center;
+        font-family: 'Vibur', cursive;
+        font-size: 50px
+    }
+
+    .login-form {
+        width: 350px;
+        padding: 40px 30px;
+        background: #eee;
+        margin: auto;
+        border: 1px solid #fff;
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: 10%
+    }
+
+    .form-group {
+        position: relative;
+        margin-bottom: 15px
+    }
+
+    .form-control {
+        width: 100%;
+        height: 50px;
+        border: none;
+        padding: 5px 7px 5px 15px;
+        background: #fff;
+        color: #666;
+        border: 2px solid #ddd
+    }
+
+    .form-group .mdi {
+        position: absolute;
+        right: 15px;
+        top: 17px;
+        color: #999
+    }
+
+    .mdi {
+        top: 13px !important;
+        color: #0AC986 !important
+    }
+
+    .form-control:focus {
+        color: #fff !important;
+        background-color: #fff;
+        border-color: #fff !important;
+        outline: none;
+        box-shadow: none
+    }
+
+    .log-status.wrong-entry .form-control,
+    .wrong-entry .form-control+.mdi {
+        border-color: #ed1c24;
+        color: #ed1c24
+    }
+
+    .log-btn {
+        background: #0AC986;
+        dispaly: inline-block;
+        width: 100%;
+        font-size: 16px;
+        height: 50px;
+        color: #fff;
+        text-decoration: none;
+        border: none
+    }
+
+    .link {
+        text-decoration: none;
+        color: #C6C6C6;
+        float: right;
+        font-size: 12px;
+        margin-bottom: 15px
+    }
+
+    .alert {
+        display: none;
+        font-size: 12px;
+        color: #f00;
+        float: left
+    }
+
+    a {
+        text-decoration: none !important
+    }
     </style>
 </head>
 
 <body>
 <div id="login">
     <div class="inner">
-        <div class="fheader"><g:message code='springSecurity.login.header'/></div>
 
-        <g:if test='${flash.message}'>
-            <div class="login_message">${flash.message}</div>
-        </g:if>
+        <div class="login-form">
+            <g:if test='${flash.message}'>
+                <div class="login_message">${flash.message}</div>
+            </g:if>
+        <form action="${postUrl ?: '/login/authenticate'}" method="POST" id="loginForm">
 
-        <form action="${postUrl ?: '/login/authenticate'}" method="POST" id="loginForm" class="cssform" autocomplete="off">
-            <p>
-                <label for="username"><g:message code='springSecurity.login.username.label'/>:</label>
-                <input type="text" class="text_" name="${usernameParameter ?: 'username'}" id="username"/>
-            </p>
+                <p>Bonjour !</p>
+                <p>Connectez-vous pour découvrir toutes nos fonctionnalités.</p>
+                <div class="form-group "> <input type="text" class="form-control"  name="${usernameParameter ?: 'username'}" placeholder="Username " id="UserName"> <i class="mdi mdi-account"></i> </div>
+                <div class="form-group log-status"> <input type="password" class="form-control" name="${passwordParameter ?: 'password'}" placeholder="Password" id="Passwod"> <i class="mdi mdi-lock"></i> </div>
+                 <p>
+                    <input type="submit" id="submit"  class="log-btn" value="${message(code: 'springSecurity.login.button')}"/>
+                </p>
 
-            <p>
-                <label for="password"><g:message code='springSecurity.login.password.label'/>:</label>
-                <input type="password" class="text_" name="${passwordParameter ?: 'password'}" id="password"/>
-            </p>
-
-            <p id="remember_me_holder">
-                <input type="checkbox" class="chk" name="${rememberMeParameter ?: 'remember-me'}" id="remember_me" <g:if test='${hasCookie}'>checked="checked"</g:if>/>
-                <label for="remember_me"><g:message code='springSecurity.login.remember.me.label'/></label>
-            </p>
-
-            <p>
-                <input type="submit" id="submit" value="${message(code: 'springSecurity.login.button')}"/>
-            </p>
         </form>
+        </div>
     </div>
 </div>
 <script>
