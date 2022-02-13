@@ -20,7 +20,7 @@
                         <div class="collapse navbar-collapse" id="navbarSupportedContent">
                             <ul class="navbar-nav mr-auto mb-2 mb-lg-0">
                                 <li class="nav-item"> <a class="nav-link active" aria-current="page"  href="${createLink(uri: '/')}">Utilisateurs</a> </li>
-                                <li class="nav-item"> <g:link controller="AnnonceController" action="create">Annonce</g:link> </li>
+                                <li class="nav-item"> <g:link controller="Annonce" action="create">Annonce</g:link> </li>
                             </ul>
 
                         </div>
@@ -29,6 +29,7 @@
             </div><br>
             <div class="row">
                 <div class="col-md-8 mx-auto">
+                    <button> <g:link controller="User" action="create">Ajouter un utilisateur</g:link></button><br>
                     <table class="table bg-white rounded border">
                         <thead>
                         <tr>
