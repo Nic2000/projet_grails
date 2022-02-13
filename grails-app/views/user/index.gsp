@@ -119,7 +119,7 @@
                                             </g:link>
                                         </li>
                                         <li>
-                                            <a href="${createLink(uri: '/')}">
+                                            <a href="${createLink(uri: 'index')}">
                                                 <i class="metismenu-icon">
                                                 </i>
                                                 Listes
@@ -163,6 +163,7 @@
                                                <th scope="col">#</th>
                                                <th scope="col">Nom d'utilisateur</th>
                                                <th scope="col">Role</th>
+                                               <th scope="col">Afficher</th>
                                            </tr>
                                            </thead>
                                            <tbody>
