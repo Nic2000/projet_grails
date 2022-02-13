@@ -130,3 +130,6 @@ environments:
                 defaultTransactionIsolation: 2 # TRANSACTION_READ_COMMITTED
 server:
     port: 8084
+illustrations:
+    path: /home/theriharetceterum/Bureau/lecoincoin/projet_itu_grails/grails-app/assets/images/
+    url: http://localhost:8084/assets/

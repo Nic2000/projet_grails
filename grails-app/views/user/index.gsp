@@ -1,54 +1,182 @@
-<!DOCTYPE html>
-<html>
-    <head>
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-        <g:set var="entityName" value="${message(code: 'user.label', default: 'User')}" />
-        <title><g:message code="default.list.label" args="[entityName]" /></title>
-        <style>
-        body {
-            background: #eee
-        }
-        </style>
-    </head>
-    <body>
-        <div class="container mt-5">
-            <div class="row">
-                <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-                    <div class="container-fluid"> <a class="navbar-brand" href="#">Lecoincoin Administration</a> <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"> <span class="navbar-toggler-icon"></span> </button>
-                        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                            <ul class="navbar-nav mr-auto mb-2 mb-lg-0">
-                                <li class="nav-item"> <a class="nav-link active" aria-current="page"  href="${createLink(uri: '/')}">Utilisateurs</a> </li>
-                                <li class="nav-item"> <g:link controller="Annonce" action="create">Annonce</g:link> </li>
-                            </ul>
+<!doctype html>
+<html lang="en">
 
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta http-equiv="Content-Language" content="en">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <g:set var="entityName" value="${message(code: 'user.label', default: 'User')}" />
+    <title><g:message code="default.list.label" args="[entityName]" /></title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, shrink-to-fit=no" />
+    <meta name="description" content="This is an example dashboard created using build-in elements and components.">
+    <meta name="msapplication-tap-highlight" content="no">
+<link href="https://demo.dashboardpack.com/architectui-html-free/main.css" rel="stylesheet"></head>
+<body>
+    <div class="app-container app-theme-white body-tabs-shadow fixed-sidebar fixed-header">
+        <div class="app-header header-shadow">
+            <div class="app-header__logo">
+                <div class="logo-src"></div>
+                <div class="header__pane ml-auto">
+                    <div>
+                        <button type="button" class="hamburger close-sidebar-btn hamburger--elastic" data-class="closed-sidebar">
+                            <span class="hamburger-box">
+                                <span class="hamburger-inner"></span>
+                            </span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <div class="app-header__mobile-menu">
+                <div>
+                    <button type="button" class="hamburger hamburger--elastic mobile-toggle-nav">
+                        <span class="hamburger-box">
+                            <span class="hamburger-inner"></span>
+                        </span>
+                    </button>
+                </div>
+            </div>
+            <div class="app-header__menu">
+                <span>
+                    <button type="button" class="btn-icon btn-icon-only btn btn-primary btn-sm mobile-toggle-header-nav">
+                        <span class="btn-icon-wrapper">
+                            <i class="fa fa-ellipsis-v fa-w-6"></i>
+                        </span>
+                    </button>
+                </span>
+            </div>
+            <div class="app-header__content">
+                <div class="app-header-right">
+                    <div class="header-btn-lg pr-0">
+                        <div class="widget-content p-0">
+                            <div class="widget-content-wrapper">
+                                <div class="widget-content-left  ml-3 header-user-info">
+                                    <div class="widget-heading">
+                                        Alina Mclourd
+                                    </div>
+                                    <div class="widget-subheading">
+                                        VP People Manager
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
-                </nav>
-            </div><br>
-            <div class="row">
-                <div class="col-md-8 mx-auto">
-                    <button> <g:link controller="User" action="create">Ajouter un utilisateur</g:link></button><br>
-                    <table class="table bg-white rounded border">
-                        <thead>
-                        <tr>
-                            <th scope="col">#</th>
-                            <th scope="col">Nom d'utilisateur</th>
-                            <th scope="col">Role</th>
-                        </tr>
-                        </thead>
-                        <tbody>
-                        <tr>
-                            <g:each var="c" in="${userList}">
-                                <li class="controller">${c.username}</li>
-                            </g:each>
-                        </tr>
-
-                        </tbody>
-                    </table>
                 </div>
             </div>
         </div>
-    </body>
+        <div class="ui-theme-settings">
+            <button type="button" id="TooltipDemo" class="btn-open-options btn btn-warning">
+                <i class="fa fa-cog fa-w-16 fa-spin fa-2x"></i>
+            </button>
+        </div>
+        <div class="app-main">
+                <div class="app-sidebar sidebar-shadow">
+                    <div class="app-header__logo">
+                        <div class="logo-src"></div>
+                        <div class="header__pane ml-auto">
+                            <div>
+                                <button type="button" class="hamburger close-sidebar-btn hamburger--elastic" data-class="closed-sidebar">
+                                    <span class="hamburger-box">
+                                        <span class="hamburger-inner"></span>
+                                    </span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="app-header__mobile-menu">
+                        <div>
+                            <button type="button" class="hamburger hamburger--elastic mobile-toggle-nav">
+                                <span class="hamburger-box">
+                                    <span class="hamburger-inner"></span>
+                                </span>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="app-header__menu">
+                        <span>
+                            <button type="button" class="btn-icon btn-icon-only btn btn-primary btn-sm mobile-toggle-header-nav">
+                                <span class="btn-icon-wrapper">
+                                    <i class="fa fa-ellipsis-v fa-w-6"></i>
+                                </span>
+                            </button>
+                        </span>
+                    </div>
+                    <div class="scrollbar-sidebar">
+                        <div class="app-sidebar__inner">
+                            <ul class="vertical-nav-menu">
+                                <li class="app-sidebar__heading">Utilisateurs</li>
+                                <li>
+                                    <a href="#" class="mm-active">
+                                        <i class="metismenu-icon pe-7s-display2"></i>
+                                        Utilisateurs
+                                        <i class="metismenu-state-icon pe-7s-angle-down caret-left"></i>
+                                    </a>
+                                    <ul>
+                                        <li>
+                                                <i class="metismenu-icon"></i>
+                                                <g:link controller="User" action="create">
+                                                    Ajouter un utilisateur
+                                            </g:link>
+                                        </li>
+                                        <li>
+                                            <a href="${createLink(uri: '/')}">
+                                                <i class="metismenu-icon">
+                                                </i>
+                                                Listes
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li class="app-sidebar__heading">Annonces</li>
+                                <li>
+                                    <a href="#">
+                                        <i class="metismenu-icon pe-7s-eyedropper"></i>
+                                        Annonces
+                                        <i class="metismenu-state-icon pe-7s-angle-down caret-left"></i>
+                                    </a>
+                                    <ul>
+                                        <li>
+                                           <i class="metismenu-icon"></i>
+                                             <g:link controller="Annonce" action="create">
+                                                Annonce
+                                             </g:link>
+                                        </li>
+                                        <li>
+                                            <a href="${createLink(uri: '/annonce/index')}">
+                                                <i class="metismenu-icon">
+                                                </i>
+                                                Listes
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </li>
+
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="app-main__outer">
+                <br>
+                   <table class="table bg-white rounded border">
+                                           <thead>
+                                           <tr>
+                                               <th scope="col">#</th>
+                                               <th scope="col">Nom d'utilisateur</th>
+                                               <th scope="col">Role</th>
+                                           </tr>
+                                           </thead>
+                                           <tbody>
+                                           <tr>
+                                               <g:each var="c" in="${userList}">
+                                                   <li class="controller">${c.username}</li>
+                                               </g:each>
+                                           </tr>
+
+                                           </tbody>
+                                       </table>
+                </div>
+                <script src="http://maps.google.com/maps/api/js?sensor=true"></script>
+        </div>
+    </div>
+<script type="text/javascript" src="https://demo.dashboardpack.com/architectui-html-free/assets/scripts/main.js"></script></body>
 </html>
