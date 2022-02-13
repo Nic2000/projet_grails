@@ -57,12 +57,49 @@ class ApiController {
 
 //    Singleton : GET / PUT / PATCH / DELETE
     def annonce() {
-
+        if (!params.id)
+            return response.status = 400
+        switch (request.getMethod()) {
+            case "GET":
+                def annonceInstance = Annonce.get(params.id)
+                if (!annonceInstance)
+                    return response.status = 404
+                renderThis(annonceInstance, request.getHeader("Accept"))
+                break
+            case "PUT":
+                break
+            case "PATCH":
+                break
+            case "DELETE":
+                break
+            default:
+                return response.status = 405
+                break
+        }
+        return response.status = 406
     }
 
 //    Collection : GET / POST
     def annonces() {
-
+        switch (request.getMethod()) {
+            case "GET":
+                def annonceInstance = Annonce.list();
+                response.withFormat {
+                    xml { render annonceInstance as XML}
+                    json { render annonceInstance as JSON }
+                }
+                break
+            case "PUT":
+                break
+            case "PATCH":
+                break
+            case "DELETE":
+                break
+            default:
+                return response.status = 405
+                break
+        }
+        return response.status = 406
     }
 
     def renderThis(Object instance, String accept)
