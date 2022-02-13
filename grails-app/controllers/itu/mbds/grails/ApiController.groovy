@@ -33,11 +33,26 @@ class ApiController {
 
 //    Collection : GET / POST
     def users() {
-        def UserInstance = User.list();
-        response.withFormat {
-            xml { render UserInstance as XML}
-            json { render UserInstance as JSON }
+        switch (request.getMethod()) {
+            case "GET":
+                def UserInstance = User.list();
+                response.withFormat {
+                    xml { render UserInstance as XML}
+                    json { render UserInstance as JSON }
+                }
+                break
+            case "PUT":
+                break
+            case "PATCH":
+                break
+            case "DELETE":
+                break
+            default:
+                return response.status = 405
+                break
         }
+        return response.status = 406
+
     }
 
 //    Singleton : GET / PUT / PATCH / DELETE
