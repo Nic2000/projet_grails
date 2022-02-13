@@ -1,9 +1,9 @@
 
 
 // Added by the Spring Security Core plugin:
-grails.plugin.springsecurity.userLookup.userDomainClassName = 'fr.itu.mbds.grails.User'
-grails.plugin.springsecurity.userLookup.authorityJoinClassName = 'fr.itu.mbds.grails.UserRole'
-grails.plugin.springsecurity.authority.className = 'fr.itu.mbds.grails.Role'
+grails.plugin.springsecurity.userLookup.userDomainClassName = 'itu.mbds.grails.User'
+grails.plugin.springsecurity.userLookup.authorityJoinClassName = 'itu.mbds.grails.UserRole'
+grails.plugin.springsecurity.authority.className = 'itu.mbds.grails.Role'
 grails.plugin.springsecurity.logout.postOnly = false
 grails.plugin.springsecurity.rest.token.storage.jwt.secret = "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJtb29jX3NwcmluZ19zZWN1cml0eSIsImlhdCI6MTU5NjIwNjcxMywiZXhwIjoxNjI3NzQyNzEzLCJhdWQiOiJtb29jX3N0dWRlbnRzIiwic3ViIjoibW9vY19zcHJpbmdfc2VjdXJpdHkiLCJHaXZlbk5hbWUiOiJNb29jIn0.gx1iCqhrx1gikFigcUTqlBBdGZPbXs6bZYxDp5V93fs"
 
