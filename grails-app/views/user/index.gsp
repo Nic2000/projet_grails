@@ -16,7 +16,8 @@
     <div class="app-container app-theme-white body-tabs-shadow fixed-sidebar fixed-header">
         <div class="app-header header-shadow">
             <div class="app-header__logo">
-                <div class="logo-src"></div>
+                <g:img dir="images" file="leboncoin.png" />
+
                 <div class="header__pane ml-auto">
                     <div>
                         <button type="button" class="hamburger close-sidebar-btn hamburger--elastic" data-class="closed-sidebar">
@@ -162,16 +163,23 @@
                                            <tr>
                                                <th scope="col">#</th>
                                                <th scope="col">Nom d'utilisateur</th>
-                                               <th scope="col">Role</th>
+
                                                <th scope="col">Afficher</th>
                                            </tr>
                                            </thead>
                                            <tbody>
-                                           <tr>
+
                                                <g:each var="c" in="${userList}">
-                                                   <li class="controller">${c.username}</li>
+                                                   <tr>
+                                                       <td class="controller">${c.id}</td>
+                                                        <td class="controller">${c.username}</td>
+                                                       <td>
+                                                           <g:link controller="User" action="show" params="${[id:c.id]}">
+                                                           Afficher
+                                                       </g:link>
+                                                       </td>
+                                                   </tr>
                                                </g:each>
-                                           </tr>
 
                                            </tbody>
                                        </table>

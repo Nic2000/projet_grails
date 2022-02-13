@@ -11,12 +11,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, shrink-to-fit=no" />
     <meta name="description" content="This is an example dashboard created using build-in elements and components.">
     <meta name="msapplication-tap-highlight" content="no">
-<link href="https://demo.dashboardpack.com/architectui-html-free/main.css" rel="stylesheet"></head>
+<link href="https://demo.dashboardpack.com/architectui-html-free/main.css" rel="stylesheet">
+</head>
 <body>
     <div class="app-container app-theme-white body-tabs-shadow fixed-sidebar fixed-header">
         <div class="app-header header-shadow">
             <div class="app-header__logo">
-                <div class="logo-src"></div>
+                <g:img dir="images" file="leboncoin.png" />
                 <div class="header__pane ml-auto">
                     <div>
                         <button type="button" class="hamburger close-sidebar-btn hamburger--elastic" data-class="closed-sidebar">
@@ -158,18 +159,41 @@
                 <div class="app-main__outer">
                 <br>
                 <div id="list-annonce" class="content scaffold-list" role="main">
-                    <h1><g:message code="default.list.label" args="[entityName]" /></h1>
-                    <g:if test="${flash.message}">
-                        <div class="message" role="status">${flash.message}</div>
-                    </g:if>
-                    <f:table collection="${annonceList}" />
+                    <table class="table bg-white rounded border">
+                        <thead>
+                        <tr>
+                            <th scope="col">#</th>
+                            <th scope="col">Title</th>
+                            <th scope="col">Description</th>
+                            <th scope="col">Price</th>
+                            <th scope="col">Status</th>
+                            <th scope="col">Afficher</th>
+                        </tr>
+                        </thead>
+                        <tbody>
 
-                    <div class="pagination">
-                        <g:paginate total="${annonceCount ?: 0}" />
-                    </div>
+                        <g:each var="c" in="${annonceList}">
+                            <tr>
+                                <td class="controller">${c.id}</td>
+                                <td class="controller">${c.title}</td>
+                                <td class="controller">${c.description}</td>
+                                <td class="controller">${c.price}</td>
+                                <td class="controller">${c.status}</td>
+
+                                <td>
+                                    <g:link controller="User" action="show" params="${[id:c.id]}">
+                                        Afficher
+                                    </g:link>
+                                </td>
+                            </tr>
+                        </g:each>
+
+                        </tbody>
+                    </table>
                 </div>
                 <script src="http://maps.google.com/maps/api/js?sensor=true"></script>
         </div>
     </div>
-<script type="text/javascript" src="https://demo.dashboardpack.com/architectui-html-free/assets/scripts/main.js"></script></body>
+<script type="text/javascript" src="https://demo.dashboardpack.com/architectui-html-free/assets/scripts/main.js"></script>
+</body>
 </html>

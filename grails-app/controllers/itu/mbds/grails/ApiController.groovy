@@ -13,16 +13,31 @@ class ApiController {
             return response.status = 400
         switch (request.getMethod()) {
             case "GET":
-                def userInstance = User.get(params.id)
-                if (!userInstance)
+                def UserInstance = User.get(params.id)
+                if (!UserInstance)
                     return response.status = 404
-                renderThis(userInstance, request.getHeader("Accept"))
+                response.withFormat {
+                    xml { render UserInstance as XML}
+                    json { render UserInstance as JSON }
+                }
                 break
             case "PUT":
-                break
-            case "PATCH":
+                def UserInstance = User.putAt(params.id,request)
+                if (!UserInstance)
+                    return response.status = 404
+                response.withFormat {
+                    xml { render UserInstance as XML}
+                    json { render UserInstance as JSON }
+                }
                 break
             case "DELETE":
+                def UserInstance = User.delete(params.id)
+                if (!UserInstance)
+                    return response.status = 404
+                response.withFormat {
+                    xml { render UserInstance as XML}
+                    json { render UserInstance as JSON }
+                }
                 break
             default:
                 return response.status = 405
@@ -41,11 +56,15 @@ class ApiController {
                     json { render UserInstance as JSON }
                 }
                 break
-            case "PUT":
-                break
-            case "PATCH":
-                break
+
             case "DELETE":
+                def UserInstance = User.deleteAll()
+                if (!UserInstance)
+                    return response.status = 404
+                response.withFormat {
+                    xml { render UserInstance as XML}
+                    json { render UserInstance as JSON }
+                }
                 break
             default:
                 return response.status = 405
@@ -67,10 +86,16 @@ class ApiController {
                 renderThis(annonceInstance, request.getHeader("Accept"))
                 break
             case "PUT":
-                break
-            case "PATCH":
+                def annonceInstance = Annonce.putAt(params.id,request)
+                if (!annonceInstance)
+                    return response.status = 404
+                renderThis(annonceInstance, request.getHeader("Accept"))
                 break
             case "DELETE":
+                def annonceInstance = Annonce.delete(params.id)
+                if (!annonceInstance)
+                    return response.status = 404
+                renderThis(annonceInstance, request.getHeader("Accept"))
                 break
             default:
                 return response.status = 405
@@ -89,11 +114,12 @@ class ApiController {
                     json { render annonceInstance as JSON }
                 }
                 break
-            case "PUT":
-                break
-            case "PATCH":
-                break
+
             case "DELETE":
+                def annonceInstance = Annonce.deleteAll()
+                if (!annonceInstance)
+                    return response.status = 404
+                renderThis(annonceInstance, request.getHeader("Accept"))
                 break
             default:
                 return response.status = 405
