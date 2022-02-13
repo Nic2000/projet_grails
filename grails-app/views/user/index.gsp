@@ -29,7 +29,7 @@
             </div><br>
             <div class="row">
                 <div class="col-md-8 mx-auto">
-                    <button> <g:link controller="User" action="create">Ajouter un utilisateur</g:link></button><br>
+                    <button> <g:link controller="User" action="create">Ajouter un utilisateur</g:link></button><br><br>
                     <table class="table bg-white rounded border">
                         <thead>
                         <tr>
